@@ -15,7 +15,7 @@ public class PluginHandler {
     private CommandHandler commandHandler;
     private final Utils utils;
 
-    private final int BSTATS_ID = 9366;
+    private final int BSTATS_ID = 9376;
 
     public PluginHandler(AdvancedInvsee instance) {
         this.instance = instance;

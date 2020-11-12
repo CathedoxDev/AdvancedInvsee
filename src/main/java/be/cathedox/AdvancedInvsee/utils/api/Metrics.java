@@ -1,5 +1,6 @@
 package be.cathedox.AdvancedInvsee.utils.api;
 
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -22,6 +23,11 @@ import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * bStats collects some data for plugin authors.
+ * <p>
+ * Check out https://bStats.org/ to learn more about bStats!
+ */
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class Metrics {
 
@@ -121,10 +127,6 @@ public class Metrics {
         logSentData = config.getBoolean("logSentData", false);
         logResponseStatusText = config.getBoolean("logResponseStatusText", false);
 
-        if(enabled = false) {
-            enabled = true;
-        }
-
         if (enabled) {
             boolean found = false;
             // Search for all other bStats Metrics classes to see if we are the first one
@@ -150,7 +152,7 @@ public class Metrics {
      * @return Whether bStats is enabled or not.
      */
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 
     /**
