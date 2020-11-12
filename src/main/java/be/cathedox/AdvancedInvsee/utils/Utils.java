@@ -1,6 +1,7 @@
 package be.cathedox.AdvancedInvsee.utils;
 
 import be.cathedox.AdvancedInvsee.AdvancedInvsee;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 
 import java.util.logging.Level;
@@ -52,5 +53,10 @@ public class Utils {
             return input;
         }
         return -1;
+    }
+
+    public String getVersion() {
+        String version = Bukkit.getBukkitVersion().split("-")[0];
+        return version;
     }
 }

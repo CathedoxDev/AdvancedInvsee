@@ -3,6 +3,7 @@ package be.cathedox.AdvancedInvsee.inventory;
 import be.cathedox.AdvancedInvsee.AdvancedInvsee;
 import be.cathedox.AdvancedInvsee.utils.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -96,16 +97,16 @@ public class InventorySee implements Listener {
 
         if(targetInventory.getLeggings() == null) {
             leggingsItem = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
-            leggingsItemMeta = chestplateItem.getItemMeta();
+            leggingsItemMeta = leggingsItem.getItemMeta();
             leggingsItemMeta.setDisplayName("No Leggings");
-            leggingsItem.setItemMeta(chestplateItemMeta);
+            leggingsItem.setItemMeta(leggingsItemMeta);
         } else {
             leggingsItem = targetInventory.getLeggings();
         }
 
         if(targetInventory.getBoots() == null) {
             bootsItem = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
-            bootsItemMeta = chestplateItem.getItemMeta();
+            bootsItemMeta = bootsItem.getItemMeta();
             bootsItemMeta.setDisplayName("No Boots");
             bootsItem.setItemMeta(bootsItemMeta);
         } else {
@@ -146,9 +147,9 @@ public class InventorySee implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if(event.getWhoClicked().getName() == psender.getName() && psender.getOpenInventory().getTitle() == ptarget.getName()+"'s Inventory") {
+        if(event.getWhoClicked().getName() == psender.getName() && psender.getOpenInventory().getTitle().equals(ptarget.getName() + "'s Inventory")) {
             event.setCancelled(true);
-        } return;
+        }
     }
 
     @EventHandler
