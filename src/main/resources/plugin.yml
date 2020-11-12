@@ -1,0 +1,25 @@
+name: ${project.artifactId}
+author: Cathedox
+version: ${project.version}
+description: $project.description}
+
+load: STARTUP
+main: be.cathedox.AdvancedInventorySee.AdvancedInventorySee
+database: false
+api-version: 1.16
+
+commands:
+  inventorysee:
+    aliases: [invsee, is]
+    usage: /inventorysee <player> OR /invsee <player> OR /is <player>
+    description: Opens a gui that shows the inventory of the selected player.
+    permission: advancedinvsee.see
+    permission-message: You don't have the required permissions to use this command
+
+permissions:
+  advancedinvsee.*:
+    default: op
+    description: Gives access to all commands and perks of AdvancedInvsee
+    children:
+      advancedinvsee.see: true
+      advancedinvsee.warned: true
