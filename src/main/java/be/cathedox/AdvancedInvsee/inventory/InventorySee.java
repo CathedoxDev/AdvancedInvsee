@@ -146,7 +146,9 @@ public class InventorySee implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        event.setCancelled(true);
+        if(event.getWhoClicked().getName() == psender.getName() && psender.getOpenInventory().getTitle() == ptarget.getName()+"'s Inventory") {
+            event.setCancelled(true);
+        } return;
     }
 
     @EventHandler
