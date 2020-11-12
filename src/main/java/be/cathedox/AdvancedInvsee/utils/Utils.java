@@ -1,6 +1,6 @@
-package be.cathedox.AdvancedInventorySee.utils;
+package be.cathedox.AdvancedInvsee.utils;
 
-import be.cathedox.AdvancedInventorySee.AdvancedInvsee;
+import be.cathedox.AdvancedInvsee.AdvancedInvsee;
 import org.bukkit.plugin.PluginDescriptionFile;
 
 import java.util.logging.Level;

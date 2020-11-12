@@ -1,7 +1,7 @@
-package be.cathedox.AdvancedInventorySee.commands;
+package be.cathedox.AdvancedInvsee.commands;
 
-import be.cathedox.AdvancedInventorySee.AdvancedInvsee;
-import be.cathedox.AdvancedInventorySee.inventory.InventorySee;
+import be.cathedox.AdvancedInvsee.AdvancedInvsee;
+import be.cathedox.AdvancedInvsee.inventory.InventorySee;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

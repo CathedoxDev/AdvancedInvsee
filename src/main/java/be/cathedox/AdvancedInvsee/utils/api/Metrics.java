@@ -1,4 +1,4 @@
-package be.cathedox.AdvancedInventorySee.utils.api;
+package be.cathedox.AdvancedInvsee.utils.api;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

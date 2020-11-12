@@ -1,8 +1,8 @@
-package be.cathedox.AdvancedInventorySee.handlers;
+package be.cathedox.AdvancedInvsee.handlers;
 
-import be.cathedox.AdvancedInventorySee.AdvancedInvsee;
-import be.cathedox.AdvancedInventorySee.utils.Utils;
-import be.cathedox.AdvancedInventorySee.utils.api.Metrics;
+import be.cathedox.AdvancedInvsee.AdvancedInvsee;
+import be.cathedox.AdvancedInvsee.utils.Utils;
+import be.cathedox.AdvancedInvsee.utils.api.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginLoader;
 

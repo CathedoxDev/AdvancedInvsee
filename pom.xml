@@ -6,7 +6,7 @@
 
     <groupId>be.cathedox</groupId>
     <artifactId>AdvancedInventorySee</artifactId>
-    <version>DEV.1.0</version>
+    <version>1.1.0</version>
     <description>A Spigot plugin to see the inventory of players, and modifying it.</description>
     <name>AdvancedInventorySee</name>
 

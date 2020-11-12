@@ -1,8 +1,8 @@
-package be.cathedox.AdvancedInventorySee.handlers;
+package be.cathedox.AdvancedInvsee.handlers;
 
-import be.cathedox.AdvancedInventorySee.AdvancedInvsee;
-import be.cathedox.AdvancedInventorySee.commands.CommandInventorySee;
-import be.cathedox.AdvancedInventorySee.tabcompleter.TabCompleterInventorySee;
+import be.cathedox.AdvancedInvsee.AdvancedInvsee;
+import be.cathedox.AdvancedInvsee.commands.CommandInventorySee;
+import be.cathedox.AdvancedInvsee.tabcompleter.TabCompleterInventorySee;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 

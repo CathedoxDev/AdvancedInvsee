@@ -1,4 +1,4 @@
-package be.cathedox.AdvancedInventorySee.tabcompleter;
+package be.cathedox.AdvancedInvsee.tabcompleter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

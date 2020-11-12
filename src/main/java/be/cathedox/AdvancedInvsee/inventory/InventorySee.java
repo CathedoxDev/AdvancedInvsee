@@ -1,7 +1,7 @@
-package be.cathedox.AdvancedInventorySee.inventory;
+package be.cathedox.AdvancedInvsee.inventory;
 
-import be.cathedox.AdvancedInventorySee.AdvancedInvsee;
-import be.cathedox.AdvancedInventorySee.utils.Utils;
+import be.cathedox.AdvancedInvsee.AdvancedInvsee;
+import be.cathedox.AdvancedInvsee.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

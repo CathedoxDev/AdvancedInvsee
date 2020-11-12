@@ -1,6 +1,6 @@
-package be.cathedox.AdvancedInventorySee;
+package be.cathedox.AdvancedInvsee;
 
-import be.cathedox.AdvancedInventorySee.handlers.PluginHandler;
+import be.cathedox.AdvancedInvsee.handlers.PluginHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class AdvancedInvsee extends JavaPlugin {
