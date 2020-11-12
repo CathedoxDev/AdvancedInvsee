@@ -15,8 +15,6 @@ public class PluginHandler {
     private CommandHandler commandHandler;
     private final Utils utils;
 
-    private final int BSTATS_ID = 9376;
-
     public PluginHandler(AdvancedInvsee instance) {
         this.instance = instance;
         this.utils = new Utils();
@@ -29,20 +27,16 @@ public class PluginHandler {
 
         PluginLoader pl = instance.getPluginLoader();
 
-        instance.getLogger().log(Level.INFO, "1. Enabling Plugin Metrics.");
-        Metrics metrics = new Metrics(instance, BSTATS_ID);
+        instance.getLogger().log(Level.INFO, "1. Enabling BSTATS.");
+        Metrics metrics = new Metrics(instance, 9376);
+
         if(metrics.isEnabled()) {
-            instance.getLogger().log(Level.INFO, ">> Plugin Metrics successfully enabled!");
+            instance.getLogger().log(Level.INFO, ">> BSTATS successfully enabled!");
         } else {
-            instance.getLogger().log(Level.SEVERE, "================= FATAL ERROR =================");
-            instance.getLogger().log(Level.SEVERE, "An error occured when enabling");
-            instance.getLogger().log(Level.SEVERE, "AdvancedInventorySee.Metrics! This plugin need");
-            instance.getLogger().log(Level.SEVERE, "this function. Please enable it at ");
-            instance.getLogger().log(Level.SEVERE, "plugins/PluginMetrics/config.yml");
-            instance.getLogger().log(Level.SEVERE, "================= FATAL ERROR =================");
-            instance.getLogger().log(Level.SEVERE, ">> AdvancedInventorySee will now be disabled.");
-            pl.disablePlugin(instance);
+            instance.getLogger().log(Level.INFO, ">> An ERROR occured while enabling the stats.");
         }
+
+
 
         instance.getLogger().info("2. Registering Commands.");
         commandHandler = new CommandHandler(instance);
