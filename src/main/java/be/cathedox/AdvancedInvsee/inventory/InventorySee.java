@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -25,8 +26,6 @@ public class InventorySee implements Listener {
 
     private final AdvancedInvsee instance;
     private final Utils utils;
-
-    private BukkitTask updateSenderInventory;
 
     private Player psender;
     private Player ptarget;
@@ -65,15 +64,6 @@ public class InventorySee implements Listener {
 
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(this, instance);
-
-        updateSenderInventory = new BukkitRunnable() {
-            @Override
-            public void run() {
-                createItems();
-                setItems();
-                psender.updateInventory();
-            }
-        }.runTaskTimer(instance, 0L, 17L);
     }
 
     private void createItems() {
@@ -146,16 +136,19 @@ public class InventorySee implements Listener {
 
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
-        if(event.getWhoClicked().getName() == psender.getName() && psender.getOpenInventory().getTitle().equals(ptarget.getName() + "'s Inventory")) {
+    public void onInventoryClickEvent(InventoryClickEvent event) {
+        if(event.getWhoClicked().getName().equals(psender.getName()) && psender.getOpenInventory().getTitle().equals(ptarget.getName() + "'s Inventory")) {
             event.setCancelled(true);
+        }
+        if(event.getWhoClicked().getName().equals(ptarget.getName()) && ptarget.getOpenInventory().getTitle().equals("Inventory")) {
+            psender.updateInventory();
         }
     }
 
     @EventHandler
-    public void onInventoryClose(InventoryCloseEvent event) {
-        if(event.getPlayer().getName() == psender.getName()) {
-            updateSenderInventory.cancel();
+    public void onInventoryDragEvent(InventoryDragEvent event) {
+        if(event.getWhoClicked().getName().equals(psender.getName())) {
+
         }
     }
 }

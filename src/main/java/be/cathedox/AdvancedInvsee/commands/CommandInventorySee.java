@@ -43,6 +43,7 @@ public class CommandInventorySee implements CommandExecutor {
             sender.sendMessage("You Cannot use this command as the console");
             return false;
         }
+
         return false;
     }
 }

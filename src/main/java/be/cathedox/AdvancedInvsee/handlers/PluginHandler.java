@@ -3,17 +3,24 @@ package be.cathedox.AdvancedInvsee.handlers;
 import be.cathedox.AdvancedInvsee.AdvancedInvsee;
 import be.cathedox.AdvancedInvsee.utils.Utils;
 import be.cathedox.AdvancedInvsee.utils.api.Metrics;
+import be.cathedox.AdvancedInvsee.utils.api.json.JSONException;
+import be.cathedox.AdvancedInvsee.utils.api.json.JSONObject;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginLoader;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.bukkit.plugin.PluginManager;
 
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.logging.Level;
 
-public class PluginHandler {
+public class PluginHandler implements Listener {
     private boolean loaded = false;
 
     private final AdvancedInvsee instance;
@@ -30,7 +37,7 @@ public class PluginHandler {
 
         //check version
         try {
-            JSONObject json = readJsonFromUrl("https://raw.githubusercontent.com/CathedoxDev/AdvancedInvsee/2e2b3d20f8f8961127a695e583ec358b6d581e22/VERSION.json");
+            JSONObject json = readJsonFromUrl("https://raw.githubusercontent.com/CathedoxDev/AdvancedInvsee/main/VERSION.json");
             String latest_version = json.get("version").toString();
             if(!(instance.getDescription().getVersion().equals(latest_version))) {
                 instance.getLogger().warning("===============================================================");
@@ -69,6 +76,9 @@ public class PluginHandler {
             instance.getLogger().severe(">> An ERROR occurred while registering the commands, if this issue persist please contact the developper");
         }
 
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(this, instance);
+
         instance.getLogger().info(">> Successfully loaded in "+(System.currentTimeMillis()-start) + "ms");
         loaded = true;
     }
@@ -95,6 +105,27 @@ public class PluginHandler {
             return json;
         } finally {
             is.close();
+        }
+    }
+
+    @EventHandler
+    public void onPlayerJoinEvent(PlayerJoinEvent event) {
+        if(event.getPlayer().isOp()) {
+            Player p = event.getPlayer();
+            try {
+                JSONObject json = readJsonFromUrl("https://raw.githubusercontent.com/CathedoxDev/AdvancedInvsee/main/VERSION.json");
+                String latest_version = json.get("version").toString();
+                if(!(instance.getDescription().getVersion().equals(latest_version))) {
+                    p.sendMessage(ChatColor.RED + "=====================================================");
+                    p.sendMessage(ChatColor.RED + "Your version of AdvancedInvsee is outdated !");
+                    p.sendMessage(ChatColor.RED + "Please Update ! Download latest version at");
+                    p.sendMessage(ChatColor.RED + "https://www.spigotmc.org/resources/advancedinvsee.85702/history");
+                    p.sendMessage(ChatColor.RED + "=====================================================");
+
+                }
+            } catch (IOException e) {
+                return;
+            }
         }
     }
 }

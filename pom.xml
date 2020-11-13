@@ -41,7 +41,6 @@
                 <version>3.2.0</version>
                 <configuration>
                     <outputDirectory>server/plugins</outputDirectory>
-                    <outputDirectory>target/</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
@@ -65,11 +64,6 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.16.1-R0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20200518</version>
         </dependency>
     </dependencies>
 
