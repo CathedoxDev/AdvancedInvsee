@@ -21,7 +21,7 @@ public class Utils {
     public void banner(AdvancedInvsee instance){
         this.instance = instance;
         getLogger().log(Level.INFO, "==============================");
-        getLogger().log(Level.INFO, "AdvancedInventorySee");
+        getLogger().log(Level.INFO, "AdvancedInvsee");
         getLogger().log(Level.INFO, "Version: " + desc().getVersion());
         getLogger().log(Level.INFO, "Developped by " + desc().getAuthors());
         getLogger().log(Level.INFO, "==============================");
